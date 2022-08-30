@@ -5,6 +5,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import Login from '../components/Login';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                   <Route path="/about" element={<About />}/>
                   <Route path="/users" element={<Users />}/>
                   <Route path="/" element={<Home />}/>
+                  <Route path="/login" element={<Login />}/>
               </Routes>
           </div>
       </Router>
