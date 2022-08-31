@@ -40,7 +40,8 @@ function Menubar() {
                 <h2 className="buttonName">Тест 1</h2>
             </div>
 
-            <div className="container-home">
+            <div className="container-home"
+                 onClick={event => navigate('/test2')}>
                 <div className="icon-container">
                     <p>Информация 2</p>
                     <div className="buttonMenubar"></div>
@@ -48,7 +49,8 @@ function Menubar() {
                 <h2 className="buttonName">Тест 2</h2>
             </div>
 
-            <div className="container-home">
+            <div className="container-home"
+                 onClick={event => navigate('/test3')}>
                 <div className="icon-container">
                     <p>Информация 3</p>
                     <div className="buttonMenubar"></div>

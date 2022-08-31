@@ -1,13 +1,9 @@
 .testBody {
     background: #252734;
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
+
     right: 0;
 }
 
@@ -20,4 +16,12 @@
 
 .highcharts-background {
     fill: #252734;
+}
+
+.highcharts-button-box {
+    fill: #252734;
+}
+
+.highcharts-button-box:hover {
+    fill: #6b7199;
 }
