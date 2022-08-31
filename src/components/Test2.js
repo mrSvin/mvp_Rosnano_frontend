@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React, {useEffect} from "react";
-import {highChartLine, highChartLineZoom, highChartColumn} from "../js/highchartReport";
+import {highChartLine, highChartLineZoom} from "../js/highchartReport";
+import {highChartPolar} from "../js/hcMoreReport";
 import Header from "./Header";
 
 function Test2() {
@@ -10,7 +11,7 @@ function Test2() {
 
         highChartLine('container')
         highChartLineZoom('container2')
-        highChartColumn('container3')
+        highChartPolar('container3')
 
     }, [])
 

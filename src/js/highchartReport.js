@@ -437,7 +437,7 @@ function generateRandomValues() {
         arrayInput.push(startTime, Math.random())
         array.push(arrayInput)
     }
-    console.log(array)
+    // console.log(array)
     return array
 }
 
