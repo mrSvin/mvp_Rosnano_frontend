@@ -1,4 +1,4 @@
-import Highcharts from "../lib/highcharts";
+import * as Highcharts from 'highcharts';
 
 require("highcharts/modules/exporting")(Highcharts);
 
@@ -427,6 +427,7 @@ export function highChartLineZoom(containerName) {
     });
 
 }
+
 
 function generateRandomValues() {
     let array = [];

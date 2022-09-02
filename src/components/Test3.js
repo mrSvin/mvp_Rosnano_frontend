@@ -1,6 +1,8 @@
 import {useNavigate} from "react-router-dom";
 import React, {useEffect} from "react";
-import {highChartColumn, highChartEnergy, highChartPie} from "../js/highchartReport";
+import {highChart3Dcolumn} from "../js/hc3dReport";
+import {highChartMoreRange,highChartRadar} from "../js/hcMoreReport";
+
 import Header from "./Header";
 
 function Test3() {
@@ -8,9 +10,9 @@ function Test3() {
     let navigate = useNavigate();
     useEffect(() => {
 
-        highChartEnergy([1,3,4,5,4,22,43,32],'container')
-        highChartPie('container2')
-        highChartColumn('container3')
+        highChart3Dcolumn('container')
+        highChartMoreRange('container2')
+        highChartRadar('container3')
 
     }, [])
 

@@ -10,6 +10,7 @@
     "highcharts-3d": "^0.1.7",
     "highcharts-export-data": "^0.1.7",
     "highcharts-more": "^0.1.7",
+    "highcharts-sankey": "^0.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-highcharts": "^16.1.0",
