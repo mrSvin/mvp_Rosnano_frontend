@@ -23,6 +23,13 @@ function Login() {
     return (
         <div className="loginTheme">
 
+            <video autoPlay muted loop id="myVideo">
+                <source
+                    src="https://assets.mixkit.co/videos/preview/mixkit-people-pouring-a-warm-drink-around-a-campfire-513-large.mp4"
+                    type="video/mp4"/>
+                    Your browser does not support HTML5 video
+            </video>
+
             <img className="loginLogo"
                  src={Logo}/>
 
