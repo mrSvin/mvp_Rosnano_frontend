@@ -3,6 +3,7 @@ import React, {useEffect} from "react";
 import Header from "./Header";
 import '../css/home.css';
 import Graph1 from '../images/graph.png';
+import Graph3 from '../images/graph3.png';
 
 function Home() {
     let navigate = useNavigate();
@@ -33,7 +34,7 @@ function Menubar() {
         <div className="main-container-home">
 
             <div className="container-home"
-                 onClick={event => navigate('/test1')}>
+                 onClick={event => navigate('/test')}>
                 <div className="icon-container">
                     <img src={Graph1} alt="no-image"/>
                     <p>Информация 1</p>
@@ -52,6 +53,7 @@ function Menubar() {
             <div className="container-home"
                  onClick={event => navigate('/test3')}>
                 <div className="icon-container">
+                    <img src={Graph3} className='staticImage' alt="no-image"/>
                     <p>Информация 3</p>
                 </div>
                 <h2>Тест 3</h2>
