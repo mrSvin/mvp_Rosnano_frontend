@@ -10,9 +10,9 @@ function Test3() {
     let navigate = useNavigate();
     useEffect(() => {
 
-        highChart3Dcolumn('container')
-        highChartMoreRange('container2')
-        highChartRadar('container3')
+        highChartMoreRange('container')
+        highChartRadar('container2')
+        highChart3Dcolumn('container3')
 
     }, [])
 
