@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import React, {useEffect} from "react";
 import Header from "./Header";
 import '../css/home.css';
+import Graph1 from '../images/graph.png';
 
 function Home() {
     let navigate = useNavigate();
@@ -32,31 +33,31 @@ function Menubar() {
         <div className="main-container-home">
 
             <div className="container-home"
-            onClick={event => navigate('/test')}>
+                 onClick={event => navigate('/test1')}>
                 <div className="icon-container">
+                    <img src={Graph1} alt="no-image"/>
                     <p>Информация 1</p>
-                    <div className="buttonMenubar"></div>
                 </div>
-                <h2 className="buttonName">Тест 1</h2>
+                <h2>Тест 1</h2>
             </div>
 
             <div className="container-home"
                  onClick={event => navigate('/test2')}>
                 <div className="icon-container">
                     <p>Информация 2</p>
-                    <div className="buttonMenubar"></div>
                 </div>
-                <h2 className="buttonName">Тест 2</h2>
+                <h2>Тест 2</h2>
             </div>
 
             <div className="container-home"
                  onClick={event => navigate('/test3')}>
                 <div className="icon-container">
                     <p>Информация 3</p>
-                    <div className="buttonMenubar"></div>
                 </div>
-                <h2 className="buttonName">Тест 3</h2>
+                <h2>Тест 3</h2>
             </div>
+
+
 
         </div>
     )

@@ -1,5 +1,8 @@
 import '../css/login.css';
-import Logo from '../images/logo.png'
+import Logo from '../images/MVP.png'
+import PasswordView from '../images/view.svg'
+import PasswordNoView from '../images/no-view.svg'
+
 import {useNavigate} from "react-router-dom";
 import React, {useState} from 'react';
 
@@ -9,6 +12,13 @@ function Login() {
     let [login, setLogin] = useState("")
     let [password, setPassword] = useState("")
     const [errorMsg, setErrorMsg] = useState('');
+
+    let [passwordEye, setpasswordEye] = useState(false)
+
+
+    const toggleClass = () => {
+        setpasswordEye(!passwordEye);
+    };
 
     function inputAuth() {
         if (login == 'test' && password == 'mvp') {
@@ -44,14 +54,19 @@ function Login() {
                         onChange={event => setLogin(event.target.value)}
 
                     />
+                    <div className='passwordContainer'>
                     <input
-                        type="password"
+                        type={passwordEye?'text':'password'}
                         className="inputBtn"
                         tabIndex="1"
                         placeholder="Password"
                         onChange={event => setPassword(event.target.value)}
 
                     />
+                        <img src={passwordEye?PasswordView:PasswordNoView} className="passwordEye"
+                             onClick={() =>  toggleClass()}
+                        />
+                    </div>
                     {errorMsg.length>0 ?
                     <p
                         id="errorMsg"

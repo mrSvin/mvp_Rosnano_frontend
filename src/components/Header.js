@@ -1,6 +1,7 @@
 import '../css/header.css';
 import {useNavigate} from "react-router-dom";
-import Logo from '../images/logo.png'
+import Logo from '../images/MVP.png'
+import profileImage from '../images/buklov.jpg'
 import React, {useEffect, useState, useRef} from "react";
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
 
                 <div className="userInfo">
                     <div className="div_login_mail">
-                        <p className="nameInfo">test</p>
+                        <p className="nameInfo">Алексей</p>
                         <p className="mailInfo">test@test.com</p>
                     </div>
 
@@ -81,7 +82,7 @@ function Dropdown() {
             <input
                 className="avatar"
                 type="image"
-                src={Logo}
+                src={profileImage}
                 alt="Avatar"
                 onClick={changeDropdown}
             >
@@ -102,7 +103,7 @@ function Dropdown() {
 
                     <img
                         className="outputImage"
-                        src={Logo}
+                        src={profileImage}
                         id="output"
                         width="200"
                     />
@@ -111,7 +112,7 @@ function Dropdown() {
                 <p
                     className="userName"
                 >
-                    test
+                    Алексей
                 </p>
 
                 <p
