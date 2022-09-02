@@ -5,6 +5,7 @@ import PasswordNoView from '../images/no-view.svg'
 
 import {useNavigate} from "react-router-dom";
 import React, {useState} from 'react';
+import Video from "../video/fire.mp4"
 
 function Login() {
 
@@ -35,7 +36,7 @@ function Login() {
 
             <video autoPlay muted loop id="myVideo">
                 <source
-                    src="https://assets.mixkit.co/videos/preview/mixkit-people-pouring-a-warm-drink-around-a-campfire-513-large.mp4"
+                    src={Video}
                     type="video/mp4"/>
                     Your browser does not support HTML5 video
             </video>
