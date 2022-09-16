@@ -301,8 +301,22 @@ export function highChartLine(containerName) {
         },
 
         xAxis: {
+            title: {
+                text: 'Тестовая ось',
+                align: 'high',
+                style: {
+                    color: '#FFF'
+                }
+            },
             accessibility: {
                 rangeDescription: 'Range: 2010 to 2020'
+            }
+        },
+
+        labels: {
+            style: {
+                color: '#FFF',
+                fontSize: '18px',
             }
         },
 
