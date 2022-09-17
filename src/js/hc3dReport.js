@@ -1,6 +1,8 @@
 import * as Highcharts from 'highcharts';
 
-require('highcharts-3d/3d')(Highcharts);
+require('../lib/highcharts-3d')(Highcharts);
+
+require("highcharts/modules/exporting")(Highcharts);
 
 export function highChart3Dcolumn(containerName) {
 
@@ -31,7 +33,12 @@ export function highChart3Dcolumn(containerName) {
             pointFormat: 'Cars sold: {point.y}'
         },
         title: {
-            text: 'Sold passenger cars in Norway by brand, January 2021'
+            text: 'Тестовый график 9',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
         },
         subtitle: {
             text: 'Source: ' +
@@ -45,6 +52,9 @@ export function highChart3Dcolumn(containerName) {
             column: {
                 depth: 25
             }
+        },
+        credits: {
+            enabled: false
         },
         series: [{
             data: [1318, 1073, 1060, 813, 775, 745, 537, 444, 416, 395],
@@ -109,6 +119,64 @@ export function highChart3Ddohut(containerName) {
                 ['Oppo*', 9],
                 ['Vivo', 8],
                 ['Others', 30]
+            ]
+        }]
+    });
+}
+
+export function highChart3Dpie(containerName) {
+
+    Highcharts.chart(containerName, {
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Суммарное количество инвестиций (2010 - 2021)',
+            style: {
+                color: '#FFF'
+            }
+        },
+
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}% - {point.y}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            type: 'pie',
+            name: 'Share',
+            data: [
+                ['МИК',  23874640875],
+                ['Наноцентр',  9077349904],
+                {
+                    name: 'Прочее',
+                    y:  2015513678,
+                    sliced: true,
+                    selected: true
+                },
+                ['ТИК',  1536019540],
             ]
         }]
     });

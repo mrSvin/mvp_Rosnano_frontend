@@ -142,34 +142,20 @@ export function highChartPie(containerName) {
             name: 'Значение',
             colorByPoint: true,
             data: [{
-                name: 'Пример 1',
-                y: 25.67,
+                name: 'МИК',
+                y:  23874640875,
                 sliced: true,
                 selected: true
             }, {
-                name: 'Пример 2',
-                y: 14.77
+                name: 'Наноцентр',
+                y:  9077349904
             }, {
-                name: 'Пример 3',
-                y: 4.86
+                name: 'Прочее',
+                y:  2015513678
+
             }, {
-                name: 'Пример 4',
-                y: 2.63
-            }, {
-                name: 'Пример 5',
-                y: 1.53
-            }, {
-                name: 'Пример 6',
-                y: 1.40
-            }, {
-                name: 'Пример 7',
-                y: 0.84
-            }, {
-                name: 'Пример 8',
-                y: 0.51
-            }, {
-                name: 'Пример 9',
-                y: 2.6
+                name: 'ТИК',
+                y:  1536019540
             }]
         }],
 
@@ -384,23 +370,61 @@ export function highChartLine(containerName) {
 
 export function highChartLineZoom(containerName) {
 
+    Highcharts.setOptions({
+        lang: {
+            loading: 'Загрузка...',
+            months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+            shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+            exportButtonTitle: "Экспорт",
+            printButtonTitle: "Печать",
+            rangeSelectorFrom: "С",
+            rangeSelectorTo: "По",
+            rangeSelectorZoom: "Период",
+            downloadPNG: 'Скачать PNG',
+            downloadJPEG: 'Скачать JPEG',
+            downloadPDF: 'Скачать PDF',
+            downloadSVG: 'Скачать SVG',
+            printChart: 'Напечатать график',
+            viewFullscreen: 'На весь экран',
+
+            downloadCSV: "Скачать CSV",
+            downloadXLS: "Скачать XLS",
+            viewData: 'Режим таблицы',
+            hideData: "Скрыть таблицу"
+        },
+        plotOptions: {
+            xrange: {
+                grouping: false
+            }
+        },
+        global: {
+            timezoneOffset: new Date().getTimezoneOffset()
+        }
+    });
+
     Highcharts.chart(containerName, {
         chart: {
             zoomType: 'x'
         },
         title: {
-            text: 'USD to EUR exchange rate over time'
+            text: 'Тестовый график 5',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
         },
         subtitle: {
             text: document.ontouchstart === undefined ?
-                'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                'Зажмите и перетащите левую кнопку мыши для увеличения' : 'Pinch the chart to zoom in'
         },
         xAxis: {
             type: 'datetime'
         },
         yAxis: {
             title: {
-                text: 'Exchange rate'
+                text: 'Рандомные значения'
             }
         },
         legend: {
@@ -432,15 +456,201 @@ export function highChartLineZoom(containerName) {
                 threshold: null
             }
         },
-
+        credits: {
+            enabled: false
+        },
         series: [{
             type: 'area',
-            name: 'USD to EUR',
+            name: 'Значение',
             data: generateRandomValues()
         }]
     });
 
 }
+
+export function highChartMonthLine(containerName) {
+
+    Highcharts.setOptions({
+        lang: {
+            loading: 'Загрузка...',
+            months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+            shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+            exportButtonTitle: "Экспорт",
+            printButtonTitle: "Печать",
+            rangeSelectorFrom: "С",
+            rangeSelectorTo: "По",
+            rangeSelectorZoom: "Период",
+            downloadPNG: 'Скачать PNG',
+            downloadJPEG: 'Скачать JPEG',
+            downloadPDF: 'Скачать PDF',
+            downloadSVG: 'Скачать SVG',
+            printChart: 'Напечатать график',
+            viewFullscreen: 'На весь экран',
+
+            downloadCSV: "Скачать CSV",
+            downloadXLS: "Скачать XLS",
+            viewData: 'Режим таблицы',
+            hideData: "Скрыть таблицу"
+        },
+        plotOptions: {
+            xrange: {
+                grouping: false
+            }
+        },
+        global: {
+            timezoneOffset: new Date().getTimezoneOffset()
+        }
+    });
+
+    Highcharts.chart(containerName, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Распределение инвестиций',
+            style: {
+                color: '#FFF'
+            }
+        },
+        xAxis: {
+            title: {
+                text: 'Года',
+                style: {
+                    color: '#FFF'
+                },
+                align: 'high'
+            },
+            labels: {
+                style: {
+                    color: '#FFF'
+                }
+            },
+            categories: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020','2021']
+        },
+        credits: {
+            enabled: false
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '%',
+                style: {
+                    color: '#FFF'
+                }
+            },
+            labels: {
+                style: {
+                    color: '#FFF'
+                },
+            }
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: {point.y} руб - {point.percentage:.1f}%<br/>',
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                stacking: 'percent'
+            }
+        },
+
+        series: [{
+            name: 'МИК',
+            color: '#e81e1d',
+            data: [ 0, 1512687, 5259664, 93477927, 212900742, 727573945,506327730,1270057284,3400267363,6971316500, 9102391637,1583555396]
+        }, {
+            name: 'Наноцентр',
+            color: '#000000',
+            data: [  0, 202892698, 185182593, 175500936,241076075,554087599,993398913,1497140632,1654787341,1539112094,1633563674,400607349]
+        }, {
+            name: 'Прочее',
+            color: '#ffea32',
+            data: [ 104676000,292719000, 156458000, 152841000, 168685000, 175522000, 158172000, 169448355, 188279886, 202702227, 194223990, 51786219]
+        }, {
+            name: 'ТИК',
+            color: '#38e817',
+            data: [ 0, 0, 3000000, 27386000, 42955938, 50510229, 91359049, 120935962, 270479050, 551504261, 272478971, 105410080]
+        }],
+        legend: {
+            itemStyle: {
+                color: '#FFF'
+            }
+        }
+    });
+}
+
+export function highChartStackedColumn(containerName) {
+
+    Highcharts.chart(containerName, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Динамика количества сотрудников по годам',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
+        },
+        xAxis: {
+            categories: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+            labels: {
+                style: {
+                    color: '#FFF'
+                }
+            },
+        },
+        yAxis: {
+            title: {
+                text: 'количество людей',
+                style: {
+                    color: '#FFF',
+                    fontWeight: 'bold',
+                    fontSize: '12px',
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        legend: {
+            align: 'left',
+            x: 70,
+            verticalAlign: 'top',
+            y: 70,
+            floating: true,
+            backgroundColor:
+                Highcharts.defaultOptions.legend.backgroundColor || 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        series: [{
+            name: 'НЦ+Тик+Прочие',
+            data: [0, 178, 184, 167,291,221,325,402,455,422,338,554]
+        }, {
+            name: 'МИК',
+            data: [35, 120, 338, 394,486,876,1212,2214,2617,3102,2674,1977]
+        }
+        ]
+    });
+
+}
+
 
 
 function generateRandomValues() {

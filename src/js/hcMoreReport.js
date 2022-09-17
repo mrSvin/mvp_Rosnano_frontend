@@ -12,12 +12,12 @@ export function highChartPolar(containerName) {
             polar: true
         },
         title: {
-            text: 'Winter Olympic medals per existing country (TOP 5)'
-        },
-        subtitle: {
-            text: 'Source: ' +
-                '<a href="https://en.wikipedia.org/wiki/All-time_Olympic_Games_medal_table"' +
-                'target="_blank">Wikipedia</a>'
+            text: 'Распределение инвестиций',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
         },
         tooltip: {
             outside: true
@@ -36,20 +36,19 @@ export function highChartPolar(containerName) {
                 step: 1,
                 y: 3,
                 style: {
-                    fontSize: '13px'
+                    fontSize: '13px',
+                    color: '#FFF'
                 }
             },
             lineWidth: 0,
             categories: [
-                'Norway <span class="f16"><span id="flag" class="flag no">' +
+                'Наноцентр <span class="f16"><span id="flag" class="flag no">' +
                 '</span></span>',
-                'United States <span class="f16"><span id="flag" class="flag us">' +
+                'Прочее <span class="f16"><span id="flag" class="flag us">' +
                 '</span></span>',
-                'Germany <span class="f16"><span id="flag" class="flag de">' +
+                'ТИК <span class="f16"><span id="flag" class="flag de">' +
                 '</span></span>',
-                'Austria <span class="f16"><span id="flag" class="flag at">' +
-                '</span></span>',
-                'Canada <span class="f16"><span id="flag" class="flag ca">' +
+                'МИК <span class="f16"><span id="flag" class="flag at">' +
                 '</span></span>'
             ]
         },
@@ -72,15 +71,22 @@ export function highChartPolar(containerName) {
                 groupPadding: 0.15
             }
         },
+        credits: {
+            enabled: false
+        },legend: {
+            itemStyle: {
+                color: '#FFF'
+            }
+        },
         series: [{
-            name: 'Gold medals',
-            data: [148, 113, 104, 71, 77]
+            name: 'Фонд',
+            data: [18593, 1191, 1580, 0]
         }, {
-            name: 'Silver medals',
-            data: [113, 122, 98, 88, 72]
+            name: 'Частные инвестиции',
+            data: [6730, 4657, 1524, 5081]
         }, {
-            name: 'Bronze medals',
-            data: [124, 95, 65, 91, 76]
+            name: 'Государство',
+            data: [1336, 0, 73, 1784]
         }]
     });
 
@@ -100,12 +106,17 @@ export function highChartMoreRange(containerName) {
         },
 
         title: {
-            text: 'Temperature variation by month'
+            text: 'Тестовый график 7',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
         },
 
         subtitle: {
-            text: 'Observed in Vik i Sogn, Norway, 2021 | ' +
-                'Source: <a href="https://www.vikjavev.no/ver/" target="_blank">Vikjavev</a>'
+            text: 'Пример минимальная и максимальная температура | ' +
+                'Источник: <a href="https://www.vikjavev.no/ver/" target="_blank">Рандомный город</a>'
         },
 
         xAxis: {
@@ -133,6 +144,10 @@ export function highChartMoreRange(containerName) {
         },
 
         legend: {
+            enabled: false
+        },
+
+        credits: {
             enabled: false
         },
 
@@ -167,7 +182,12 @@ export function highChartRadar(containerName) {
         },
 
         title: {
-            text: 'Highcharts Polar Chart'
+            text: 'Тестовый график 8',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
         },
 
         subtitle: {
@@ -201,6 +221,10 @@ export function highChartRadar(containerName) {
                 pointPadding: 0,
                 groupPadding: 0
             }
+        },
+
+        credits: {
+            enabled: false
         },
 
         series: [{

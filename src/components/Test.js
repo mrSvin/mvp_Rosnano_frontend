@@ -2,16 +2,19 @@ import {useNavigate} from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 import Header from "./Header";
 import "../css/test.css"
-import {highChartEnergy, highChartPie, highChartColumn} from "../js/highchartReport"
+import {highChartMonthLine, highChartStackedColumn} from "../js/highchartReport"
+import {highChart3Dpie} from "../js/hc3dReport";
+import {highChartPolar} from "../js/hcMoreReport";
 
 function Test() {
 
     let navigate = useNavigate();
     useEffect(() => {
 
-        highChartEnergy([1,3,4,5,4,22,43,32],'container')
-        highChartPie('container2')
-        highChartColumn('container3')
+        highChartMonthLine('container')
+        highChart3Dpie('container2')
+        highChartPolar('container3')
+        highChartStackedColumn('container4')
 
     }, [])
 
@@ -25,6 +28,8 @@ function Test() {
             <div className="containerHighChart" id="container2"></div>
 
             <div className="containerHighChart" id="container3"></div>
+
+            <div className="containerHighChart" id="container4"></div>
 
         </div>
     )
