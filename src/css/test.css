@@ -25,3 +25,9 @@
 .highcharts-button-box:hover {
     fill: #6b7199;
 }
+
+.containerHighChartTest2 {
+    width: 95%;
+    height: 600px;
+    margin: 0 auto;
+}

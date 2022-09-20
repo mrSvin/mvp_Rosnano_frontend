@@ -651,6 +651,151 @@ export function highChartStackedColumn(containerName) {
 
 }
 
+export function highChartColumnFondChastGos(containerName) {
+    let category = [' Ульяновск', ' Троицк', ' Т-Нано',
+        ' Сигма.Томск', ' Сигма.Новосибирск', ' Самара', ' НЦК',
+        ' Новосибирск-медицина', ' Мордовия', ' Ленинградская область', ' Краснано',
+        ' Казань', ' Зеленоград', ' Дубна',
+        ' ШИП', ' ТЦТТ', '	Технопарк "Саров"', ' Союз "ЦТТ РАН и РОСНАНО"', ' ПЦКТ Пенза',
+        ' НЦ Казань - Идея', ' TAE-RU', ' Startbase',
+        ' Троицк', '  ЭУФ Лабс', 'Фаблайт', 'Т8 Сенсор', 'СНЭ', 'ПЛД', 'ЛВМ АТ', 'ИЦ АТ',
+        'Грасис', 'Артек Композитс', 'BIPV', '"ИЦ "Газотурбинные технологии"',
+    ]
+
+    let fond = [
+        1627759200, 5635829818,2500000000, 316000000, 2092539069,
+        490099010, 1339714054, 2500, 1150000000, 564000000,
+        50000000, 0, 1721012046, 1105781217, 3000000,
+        10000000, 199993010, 85000000,  4999000, 800000,
+        812598800, 74391000, 14400000, 269900000,  43910000,
+        4797100, 75000000, 49900, 60493200, 49000,
+        59640000, 51370000, 480000, 999750000,
+    ]
+
+    let chast = [
+        316777308, 713406357, 355000000, 448666666, 2716333334,
+        500000000, 269000000, 7500, 292500000, 65000000,
+        50000000, 300000000, 130020000, 573430000, 1000000,
+        20000000, 199993010, 0, 5001000, 3618500000,
+        812598800, 4500, 17600000, 20766727, 0,
+        5002900, 30000000, 50100, 11606800, 51000,
+        60490000, 17380900, 0, 1361350000,
+    ]
+
+    let gos = [
+        0,965000000, 0, 0, 0, 0, 156820103, 0, 0, 0,
+        0, 0, 213821377, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 72840492, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0
+    ]
+
+    let medium = category.map((e,i)=>{
+        return  Math.floor((fond[i] + chast[i] + gos[i])/3)
+
+    })
+
+    Highcharts.chart(containerName, {
+        title: {
+            text: 'Показатели',
+            style: {
+                color: '#FFF',
+                fontWeight: 'bold',
+                fontSize: '22px',
+            }
+        },
+        xAxis: {
+            categories: category,
+            labels: {
+                style: {
+                    color: '#FFF'
+                }
+            },
+        },
+        yAxis: {
+            title: {
+                text: 'Показатели',
+                style: {
+                    color: '#FFF',
+                    fontWeight: 'bold',
+                    fontSize: '12px',
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        labels: {
+            items: [{
+                html: 'Общее',
+                style: {
+                    left: '50px',
+                    top: '18px',
+                    color: ( // theme
+                        Highcharts.defaultOptions.title.style &&
+                        Highcharts.defaultOptions.title.style.color
+                    ) || 'white'
+                }
+            }]
+        },
+        // plotOptions: {
+        //     column: {
+        //         stacking: 'percent'
+        //     }
+        // },
+        series: [{
+            type: 'column',
+            name: 'Фонд',
+            data: fond
+        }, {
+            type: 'column',
+            name: 'Частные инвесторы',
+            data: chast
+        }, {
+            type: 'column',
+            name: 'Государство',
+            data: gos
+        },{
+            type: 'spline',
+            name: 'Среднее',
+            data: medium,
+            marker: {
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[3],
+                fillColor: 'white'
+            }
+        }, {
+            type: 'pie',
+            name: 'Сумма',
+            data: [{
+                name: 'Фонд',
+                y: fond.reduce((partialSum, a) => partialSum + a, 0),
+                color: Highcharts.getOptions().colors[0] // 2020 color
+            }, {
+                name: 'Частные инвесторы',
+                y: chast.reduce((partialSum, a) => partialSum + a, 0),
+                color: Highcharts.getOptions().colors[1] // 2021 color
+            }, {
+                name: 'Государство',
+                y: gos.reduce((partialSum, a) => partialSum + a, 0),
+                color: Highcharts.getOptions().colors[2] // 2022 color
+            }],
+            center: [199, 15],
+
+            size: 75,
+            showInLegend: false,
+            dataLabels: {
+                enabled: false
+            }
+        }],
+        legend: {
+            itemStyle: {
+                color: '#FFF'
+            }
+        }
+    });
+
+}
+
 
 
 function generateRandomValues() {
