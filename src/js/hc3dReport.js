@@ -4,7 +4,52 @@ require('../lib/highcharts-3d')(Highcharts);
 
 require("highcharts/modules/exporting")(Highcharts);
 
-export function highChart3Dcolumn(containerName) {
+export function highChart3Dcolumn(containerName, year) {
+
+    let array
+    console.log(year)
+
+    switch (year) {
+        case 2010:
+            array = [0, 98400, 0, 0]
+            break
+        case 2011:
+            array = [737483, 49632818, 22144781, 0]
+            break
+        case 2012:
+            array = [13813059, 70709220, 43089951, 0]
+            break
+        case 2013:
+            array = [32698714, 127893481, 32641965, 0]
+            break
+        case 2014:
+            array = [62140248, 183670093, 27736664, 0]
+            break
+        case 2015:
+            array = [105046854, 308109173, 66571822, 0]
+            break
+        case 2016:
+            array = [124122123, 304947297, 65867047, 0]
+            break
+        case 2017:
+            array = [196122427, 414445299, 74667452, 18941825]
+            break
+        case 2018:
+            array = [586097169, 313120590, 76738160, 45478301]
+            break
+        case 2019:
+            array = [492422893, 350283801, 106790648, 55513329]
+            break
+        case 2020:
+            array = [726183181, 258306422, 83654088, 51781539]
+            break
+        case 2021:
+            array = [169357801, 59640892, 16273304, 8176500]
+            break
+
+        default:
+            array = [0, 0, 0, 0]
+    }
 
 // Set up the chart
     const chart = new Highcharts.Chart({
@@ -20,30 +65,38 @@ export function highChart3Dcolumn(containerName) {
             }
         },
         xAxis: {
-            categories: ['Toyota', 'BMW', 'Volvo', 'Audi', 'Peugeot', 'Mercedes-Benz',
-                'Volkswagen', 'Polestar', 'Kia', 'Nissan']
+            categories: ['МИК', 'Наноцентр', 'Прочее', 'ТИК'],
+            labels: {
+
+                style: {
+                    fontSize: '13px',
+                    color: '#FFF'
+                }
+            }
         },
         yAxis: {
             title: {
                 enabled: false
+            },
+            labels: {
+
+                style: {
+                    fontSize: '13px',
+                    color: '#FFF'
+                }
             }
         },
         tooltip: {
             headerFormat: '<b>{point.key}</b><br>',
-            pointFormat: 'Cars sold: {point.y}'
+            pointFormat: '{point.y}'
         },
         title: {
-            text: 'Тестовый график 9',
+            text: 'Динамика налогов',
             style: {
                 color: '#FFF',
                 fontWeight: 'bold',
                 fontSize: '22px',
             }
-        },
-        subtitle: {
-            text: 'Source: ' +
-                '<a href="https://ofv.no/registreringsstatistikk"' +
-                'target="_blank">OFV</a>'
         },
         legend: {
             enabled: false
@@ -57,7 +110,7 @@ export function highChart3Dcolumn(containerName) {
             enabled: false
         },
         series: [{
-            data: [1318, 1073, 1060, 813, 775, 745, 537, 444, 416, 395],
+            data: array,
             colorByPoint: true
         }]
     });
