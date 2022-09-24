@@ -3,7 +3,7 @@
     position: absolute;
     top: 0;
     left: 0;
-
+    overflow-x: hidden;
     right: 0;
 }
 
@@ -30,4 +30,79 @@
     width: 95%;
     height: 600px;
     margin: 0 auto;
+}
+.dinamicTable {
+    border: 1px solid white;
+    background: #2d2938;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.dinamicTable thead, .dinamicTable thead > tr {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.dinamicTable th, .dinamicTable td {
+    display: inline-block;
+    margin: 0px 10px;
+    color: white;
+    font-size: 20px;
+    width: 6.4%;
+}
+
+.dinamicTable th {
+    color: white;
+    font-size: 20px;
+    width: 7.5%;
+    margin: 0;
+}
+
+.dinamicTable tbody, .dinamicTable tbody > tr {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.dinamicTable td {
+    color: white;
+    font-size: 20px;
+    width: 7.5%;
+    margin: 0;
+}
+
+.dinamicTable th:nth-child(1){
+
+}
+
+
+.dinamicTable td >div > input {
+    padding: 7px;
+    background: #15182e;
+    color: white;
+    font-size: 16px;
+    display: inline-block;
+    width: 80%;
+}
+
+
+.dinamicTable td:nth-child(1){
+    color: white;
+    font-size: 20px;
+}
+
+.dinamicTable input {
+    width: 100%;
+}
+
+.dinamicTable tr {
+    /*display: inline-block;*/
+    white-space: nowrap;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
 }

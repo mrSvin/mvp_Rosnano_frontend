@@ -796,6 +796,150 @@ export function highChartColumnFondChastGos(containerName) {
 
 }
 
+export function tableHigcharts(array=[], container='container2') {
+
+    // for(let i=0; i<=47; i++) {
+    //     array.push(i)
+    // }
+
+    let mic = []
+
+    let nana = []
+
+    let other = []
+
+    let tic = []
+
+    array.forEach((e,i)=>{
+        if(i<12){
+            mic.push(e)
+            return
+        }
+        if(i<24){
+            nana.push(e)
+            return
+        }
+        if(i<36){
+            other.push(e)
+            return
+        }
+        else{
+            tic.push(e)
+            return
+        }
+    })
+
+
+    Highcharts.setOptions({
+        lang: {
+            loading: 'Загрузка...',
+            months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            weekdays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+            shortMonths: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Нояб', 'Дек'],
+            exportButtonTitle: "Экспорт",
+            printButtonTitle: "Печать",
+            rangeSelectorFrom: "С",
+            rangeSelectorTo: "По",
+            rangeSelectorZoom: "Период",
+            downloadPNG: 'Скачать PNG',
+            downloadJPEG: 'Скачать JPEG',
+            downloadPDF: 'Скачать PDF',
+            downloadSVG: 'Скачать SVG',
+            printChart: 'Напечатать график',
+            viewFullscreen: 'На весь экран',
+
+            downloadCSV: "Скачать CSV",
+            downloadXLS: "Скачать XLS",
+            viewData: 'Режим таблицы',
+            hideData: "Скрыть таблицу"
+        },
+        plotOptions: {
+            xrange: {
+                grouping: false
+            }
+        },
+        global: {
+            timezoneOffset: new Date().getTimezoneOffset()
+        }
+    });
+
+    Highcharts.chart(container, {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Распределение инвестиций',
+            style: {
+                color: '#FFF'
+            }
+        },
+        xAxis: {
+            title: {
+                text: 'Года',
+                style: {
+                    color: '#FFF'
+                },
+                align: 'high'
+            },
+            labels: {
+                style: {
+                    color: '#FFF'
+                }
+            },
+            categories: ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020','2021']
+        },
+        credits: {
+            enabled: false
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '%',
+                style: {
+                    color: '#FFF'
+                }
+            },
+            labels: {
+                style: {
+                    color: '#FFF'
+                },
+            }
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: {point.y} руб - {point.percentage:.1f}%<br/>',
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                stacking: 'percent'
+            }
+        },
+
+        series: [{
+            name: 'МИК',
+            color: '#e81e1d',
+            data: mic,
+        }, {
+            name: 'Наноцентр',
+            color: '#000000',
+            data: nana,
+        }, {
+            name: 'Прочее',
+            color: '#ffea32',
+            data: other,
+        }, {
+            name: 'ТИК',
+            color: '#38e817',
+            data: tic,
+        }],
+        legend: {
+            itemStyle: {
+                color: '#FFF'
+            }
+        }
+    });
+}
+
 
 
 function generateRandomValues() {
